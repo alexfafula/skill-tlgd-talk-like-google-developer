@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "id": "tlgd-real-repo-v3",
+  "repository": {
+    "name": "expressjs/express",
+    "url": "https://github.com/expressjs/express.git",
+    "version": "5.2.1",
+    "commit": "a3714473feb3d2908add734d340e7755fd85e0a3",
+    "commit_date": "2026-07-27"
+  },
+  "conditions": {
+    "control": {
+      "skill_enabled": false,
+      "prompt_suffix": ""
+    },
+    "tlgd": {
+      "skill_enabled": true,
+      "prompt_suffix": "\n\nTLGD"
+    }
+  },
+  "cases": [
+    {
+      "id": "locate-res-json",
+      "mode": "answer",
+      "difficulty": "simple",
+      "max_response_words": 80,
+      "prompt": "Where is res.json() implemented in this Express repository snapshot, and which method does it call to send the serialized body? Answer for an experienced contributor. Cite the exact repository path and symbol. Do not modify files, install dependencies, run tests, or use the web. You may read files in the snapshot.",
+      "required_paths": [
+        "lib/response.js"
+      ],
+      "required_term_groups": [
+        [
+          "res.json"
+        ],
+        [
+          "res.send",
+          "this.send"
+        ]
+      ],
+      "required_commands": [],
+      "review_criteria": [
+        "Answer the narrow question directly in one or two sentences or two short bullets.",
+        "Identify res.json() in lib/response.js and its delegation to res.send().",
+        "Do not add JSONP, caching, test, or contributor-workflow details."
+      ],
+      "semantic_facts": [
+        "res.json() is implemented in lib/response.js.",
+        "res.json() serializes the body and then calls res.send() (this.send).",
+        "The answer stops without JSONP, caching, test, or contributor-workflow detail."
+      ]
+    },
+    {
+      "id": "validation-commands",
+      "mode": "procedure",
+      "difficulty": "simple",
+      "max_response_words": 100,
+      "forbidden_commands": [
+        "npm run test-ci",
+        "npm run lint:fix",
+        "npx mocha"
+      ],
+      "prompt": "A contributor made a small code change in this Express repository snapshot. What prerequisites and exact repository-defined commands are required for local validation? Base the answer only on files in this snapshot and cite the file that defines the commands. Do not explain what linting or testing is, invent commands, modify files, install dependencies, run tests, or use the web.",
+      "required_paths": [
+        "package.json"
+      ],
+      "required_term_groups": [
+        [
+          "Node.js",
+          "Node "
+        ],
+        [
+          ">= 18",
+          ">=18",
+          "18 or higher",
+          "18 or later",
+          "18 or newer",
+          "18+"
+        ],
+        [
+          "dependencies",
+          "devDependencies",
+          "npm install"
+        ]
+      ],
+      "required_commands": [
+        "npm run lint",
+        "npm test"
+      ],
+      "review_criteria": [
+        "Put the Node.js and dependency prerequisites first.",
+        "Give npm run lint and npm test as the validation commands.",
+        "Do not add optional coverage scripts, focused test adaptations, or generic explanations."
+      ],
+      "semantic_facts": [
+        "Node.js 18 or later is a prerequisite.",
+        "Dependencies are installed with npm install before validation.",
+        "npm run lint and npm test are the validation commands.",
+        "No optional, adapted, or coverage command is added."
+      ]
+    },
+    {
+      "id": "etag-default",
+      "mode": "answer",
+      "difficulty": "simple",
+      "max_response_words": 100,
+      "forbidden_terms": [
+        "lib/response.js",
+        "req.fresh",
+        "If-None-Match",
+        "304"
+      ],
+      "prompt": "Is automatic ETag generation enabled by default in this Express repository snapshot? State the default and where Express compiles that setting. Cite exact repository paths and symbols. Do not modify files, install dependencies, run tests, or use the web. You may read files in the snapshot.",
+      "required_paths": [
+        "lib/application.js",
+        "lib/utils.js"
+      ],
+      "required_term_groups": [
+        [
+          "ETag",
+          "etag"
+        ],
+        [
+          "weak"
+        ],
+        [
+          "compileETag"
+        ]
+      ],
+      "required_commands": [],
+      "review_criteria": [
+        "Answer yes first.",
+        "Identify the weak default in lib/application.js and compileETag() in lib/utils.js.",
+        "Stop without explaining freshness, conditional requests, or cache policy."
+      ],
+      "semantic_facts": [
+        "Automatic ETag generation is enabled by default.",
+        "The default ETag mode is weak, set in lib/application.js.",
+        "compileETag in lib/utils.js compiles the setting.",
+        "The answer stops without explaining freshness, conditional requests, or cache policy."
+      ]
+    },
+    {
+      "id": "request-response-path",
+      "mode": "answer",
+      "difficulty": "deep",
+      "max_response_words": 900,
+      "prompt": "You are helping an experienced Node.js developer understand Express 5 internals. Based only on this repository snapshot, explain what happens after a request reaches an application created by express() and before a route handler sends a response with res.send(). Cite exact repository paths and symbol names for each important step. Clearly separate behavior implemented in this repository from behavior delegated to dependencies. Do not modify files, use the web, or rely on documentation outside this snapshot.",
+      "required_paths": [
+        "lib/express.js",
+        "lib/application.js",
+        "lib/response.js"
+      ],
+      "required_term_groups": [
+        [
+          "createApplication"
+        ],
+        [
+          "app.handle"
+        ],
+        [
+          "router.handle",
+          "Router"
+        ],
+        [
+          "res.send"
+        ]
+      ],
+      "required_commands": [],
+      "review_criteria": [
+        "Trace the request through createApplication() and app.handle().",
+        "Describe the request and response prototype setup.",
+        "Identify Router behavior as dependency behavior rather than inventing its implementation.",
+        "Describe res.send() only to the level supported by lib/response.js."
+      ],
+      "semantic_facts": [
+        "express() calls createApplication() in lib/express.js.",
+        "app.handle() in lib/application.js dispatches the request to the router.",
+        "Routing behavior is delegated to the router dependency rather than implemented in this repository.",
+        "Request and response prototypes are set up before handlers run.",
+        "res.send() in lib/response.js writes the response."
+      ]
+    },
+    {
+      "id": "res-json-contributor-procedure",
+      "mode": "procedure",
+      "difficulty": "deep",
+      "max_response_words": 550,
+      "forbidden_commands": [
+        "npx mocha"
+      ],
+      "prompt": "Write a contributor procedure for changing the behavior of res.json() safely in this Express repository snapshot. Identify the implementation, the focused tests, prerequisites, and the exact repository-defined commands that validate the change. Base every instruction on files in this snapshot. Do not invent a package script, modify files, install dependencies, run tests, or use the web.",
+      "required_paths": [
+        "lib/response.js",
+        "test/res.json.js",
+        "package.json"
+      ],
+      "required_term_groups": [
+        [
+          "res.json"
+        ],
+        [
+          "Node.js",
+          "Node "
+        ],
+        [
+          ">= 18",
+          ">=18",
+          "18 or higher",
+          "18 or later",
+          "18 or newer",
+          "18+"
+        ],
+        [
+          "dependencies",
+          "devDependencies",
+          "npm install"
+        ]
+      ],
+      "required_commands": [
+        "npm test",
+        "npm run lint"
+      ],
+      "review_criteria": [
+        "Put prerequisites before actions.",
+        "Point to res.json() in lib/response.js and its focused tests in test/res.json.js.",
+        "Use only commands supported by Readme.md or package.json.",
+        "Order implementation, targeted inspection, validation, and final verification clearly."
+      ],
+      "semantic_facts": [
+        "Prerequisites (Node.js 18 or later and npm install) come before the steps.",
+        "The implementation is res.json() in lib/response.js and the focused tests are in test/res.json.js.",
+        "Validation uses only npm test and npm run lint from package.json.",
+        "The procedure orders implementation, targeted inspection, validation, and final verification."
+      ]
+    },
+    {
+      "id": "conditional-get-304",
+      "mode": "troubleshooting",
+      "difficulty": "deep",
+      "max_response_words": 500,
+      "prompt": "An Express 5 handler calls res.json() with a JSON object. A client sends If-None-Match and receives HTTP 304 with no response body. Based only on this repository snapshot, explain the exact code path and conditions that produce that result. Include the relevant implementation and test paths, distinguish Express behavior from dependency behavior, and give a bounded way to verify the diagnosis. Do not modify files, run tests, use the web, or recommend disabling HTTP caching without explaining the tradeoff.",
+      "required_paths": [
+        "lib/response.js",
+        "lib/request.js",
+        "test/res.send.js"
+      ],
+      "required_term_groups": [
+        [
+          "res.json"
+        ],
+        [
+          "res.send"
+        ],
+        [
+          "req.fresh"
+        ],
+        [
+          "ETag"
+        ],
+        [
+          "If-None-Match"
+        ],
+        [
+          "304"
+        ]
+      ],
+      "required_commands": [],
+      "review_criteria": [
+        "Explain that res.json() serializes the value and delegates to res.send().",
+        "Explain ETag generation and the req.fresh check without attributing dependency internals to Express.",
+        "State that the 304 path removes body-related headers and sends an empty body.",
+        "Keep verification advice grounded in the existing tests and request headers."
+      ],
+      "semantic_facts": [
+        "res.json() serializes the value and delegates to res.send().",
+        "res.send() generates an ETag when none is set and checks req.fresh.",
+        "The If-None-Match freshness comparison is delegated to a dependency rather than implemented in Express.",
+        "On a fresh request the status becomes 304, body-related headers are removed, and an empty body is sent.",
+        "Verification is grounded in the existing tests (test/res.send.js) or request headers."
+      ]
+    }
+  ]
+}

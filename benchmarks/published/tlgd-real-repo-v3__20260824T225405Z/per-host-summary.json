@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "run_id": "tlgd-real-repo-v3__20260824T225405Z",
+  "treatment": "tlgd",
+  "agents": [
+    "agy",
+    "claude",
+    "codex"
+  ],
+  "cases": [
+    "locate-res-json",
+    "validation-commands",
+    "etag-default",
+    "conditional-get-304"
+  ],
+  "rows": [
+    {
+      "agent": "agy",
+      "case_id": "conditional-get-304",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 827.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 8.4,
+          "median_total_tokens": 156677.0,
+          "median_output_tokens": 14406.0,
+          "median_seconds": 54.1
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 833.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 9.6,
+          "median_total_tokens": 161424.0,
+          "median_output_tokens": 17223.0,
+          "median_seconds": 71.5
+        }
+      },
+      "median_word_reduction_percent": -0.7,
+      "pairs": 3
+    },
+    {
+      "agent": "agy",
+      "case_id": "etag-default",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 1,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 135.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 6.5,
+          "median_total_tokens": 76725.0,
+          "median_output_tokens": 4736.0,
+          "median_seconds": 22.3
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 43.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 17.5,
+          "median_total_tokens": 62839.0,
+          "median_output_tokens": 5012.0,
+          "median_seconds": 20.0
+        }
+      },
+      "median_word_reduction_percent": 70.1,
+      "pairs": 3
+    },
+    {
+      "agent": "agy",
+      "case_id": "locate-res-json",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 55.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 13.3,
+          "median_total_tokens": 70172.0,
+          "median_output_tokens": 1769.0,
+          "median_seconds": 13.7
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 31.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 12.5,
+          "median_total_tokens": 52054.0,
+          "median_output_tokens": 2927.0,
+          "median_seconds": 17.3
+        }
+      },
+      "median_word_reduction_percent": 43.6,
+      "pairs": 3
+    },
+    {
+      "agent": "agy",
+      "case_id": "validation-commands",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 0,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 128.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 4.7,
+          "median_total_tokens": 80691.0,
+          "median_output_tokens": 4280.0,
+          "median_seconds": 20.1
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 50.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 5.4,
+          "median_total_tokens": 80832.0,
+          "median_output_tokens": 6438.0,
+          "median_seconds": 27.4
+        }
+      },
+      "median_word_reduction_percent": 67.4,
+      "pairs": 3
+    },
+    {
+      "agent": "claude",
+      "case_id": "conditional-get-304",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 951.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 12.0,
+          "median_total_tokens": 5691.0,
+          "median_output_tokens": 5673.0,
+          "median_seconds": 75.3
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 785.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 13.0,
+          "median_total_tokens": 4978.0,
+          "median_output_tokens": 4964.0,
+          "median_seconds": 67.2
+        }
+      },
+      "median_word_reduction_percent": 17.5,
+      "pairs": 3
+    },
+    {
+      "agent": "claude",
+      "case_id": "etag-default",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 0,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 246.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 9.3,
+          "median_total_tokens": 1442.0,
+          "median_output_tokens": 1436.0,
+          "median_seconds": 20.0
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 73.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 15.0,
+          "median_total_tokens": 854.0,
+          "median_output_tokens": 844.0,
+          "median_seconds": 14.8
+        }
+      },
+      "median_word_reduction_percent": 70.3,
+      "pairs": 3
+    },
+    {
+      "agent": "claude",
+      "case_id": "locate-res-json",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 126.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 19.2,
+          "median_total_tokens": 641.0,
+          "median_output_tokens": 635.0,
+          "median_seconds": 11.4
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 53.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 15.0,
+          "median_total_tokens": 571.0,
+          "median_output_tokens": 563.0,
+          "median_seconds": 13.5
+        }
+      },
+      "median_word_reduction_percent": 60.4,
+      "pairs": 3
+    },
+    {
+      "agent": "claude",
+      "case_id": "validation-commands",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 0,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 221.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 9.6,
+          "median_total_tokens": 1363.0,
+          "median_output_tokens": 1355.0,
+          "median_seconds": 23.1
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 2,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 41.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 6.0,
+          "median_total_tokens": 333.0,
+          "median_output_tokens": 327.0,
+          "median_seconds": 8.7
+        }
+      },
+      "median_word_reduction_percent": 80.5,
+      "pairs": 3
+    },
+    {
+      "agent": "codex",
+      "case_id": "conditional-get-304",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 699.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 10.4,
+          "median_total_tokens": 309245.0,
+          "median_output_tokens": 5441.0,
+          "median_seconds": 137.2
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 0,
+          "first_attempt_success": 3,
+          "median_words": 639.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 9.9,
+          "median_total_tokens": 231755.0,
+          "median_output_tokens": 5226.0,
+          "median_seconds": 117.1
+        }
+      },
+      "median_word_reduction_percent": 9.2,
+      "pairs": 3
+    },
+    {
+      "agent": "codex",
+      "case_id": "etag-default",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 0,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 83.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 7.9,
+          "median_total_tokens": 73666.0,
+          "median_output_tokens": 853.0,
+          "median_seconds": 28.9
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 50.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 8.2,
+          "median_total_tokens": 74656.0,
+          "median_output_tokens": 809.0,
+          "median_seconds": 23.8
+        }
+      },
+      "median_word_reduction_percent": 47.5,
+      "pairs": 3
+    },
+    {
+      "agent": "codex",
+      "case_id": "locate-res-json",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 41.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 13.0,
+          "median_total_tokens": 71522.0,
+          "median_output_tokens": 611.0,
+          "median_seconds": 20.3
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 34.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 11.0,
+          "median_total_tokens": 69093.0,
+          "median_output_tokens": 514.0,
+          "median_seconds": 17.7
+        }
+      },
+      "median_word_reduction_percent": 17.1,
+      "pairs": 3
+    },
+    {
+      "agent": "codex",
+      "case_id": "validation-commands",
+      "conditions": {
+        "control": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 50.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 4.9,
+          "median_total_tokens": 73756.0,
+          "median_output_tokens": 1044.0,
+          "median_seconds": 30.9
+        },
+        "tlgd": {
+          "answers": 3,
+          "quality_pass": 3,
+          "budget_pass": 3,
+          "first_attempt_success": 3,
+          "median_words": 38.0,
+          "median_mannerisms": 0.0,
+          "median_sentence_words": 9.3,
+          "median_total_tokens": 96494.0,
+          "median_output_tokens": 1272.0,
+          "median_seconds": 34.0
+        }
+      },
+      "median_word_reduction_percent": 24.0,
+      "pairs": 3
+    }
+  ],
+  "totals": {
+    "control": {
+      "answers": 36,
+      "quality_pass": 22,
+      "budget_pass": 12
+    },
+    "tlgd": {
+      "answers": 36,
+      "quality_pass": 35,
+      "budget_pass": 27
+    }
+  }
+}

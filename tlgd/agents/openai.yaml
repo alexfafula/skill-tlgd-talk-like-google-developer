@@ -1,0 +1,4 @@
+interface:
+  display_name: "TLGD — Talk Like a Google Developer"
+  short_description: "Make technical communication concise and Google-style"
+  default_prompt: "Use $tlgd to make this technical content clear, concise, accurate, and Google-style."

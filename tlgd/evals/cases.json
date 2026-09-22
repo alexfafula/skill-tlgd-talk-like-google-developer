@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "answer-first-explanation",
+      "mode": "answer",
+      "prompt": "Explain why an HTTP client can receive a 304 response without a response body.",
+      "expected_routes": [
+        "references/language-and-grammar.md"
+      ],
+      "assertions": [
+        "Lead with the reason for the missing body.",
+        "Keep HTTP terminology exact.",
+        "Preserve the causal stages in compact, natural prose.",
+        "Do not turn the answer into a generic documentation template or a telegraphic fragment."
+      ]
+    },
+    {
+      "id": "preserve-modality",
+      "mode": "rewrite",
+      "prompt": "Rewrite: The retry can succeed, but it might return the same error and will not restore deleted data.",
+      "expected_routes": [
+        "references/language-and-grammar.md"
+      ],
+      "assertions": [
+        "Preserve can, might, and will not as distinct levels of certainty.",
+        "Preserve the deletion caveat.",
+        "Do not add a guarantee."
+      ]
+    },
+    {
+      "id": "procedure-with-ui-and-command",
+      "mode": "draft",
+      "prompt": "Turn these notes into a procedure: open Settings, choose API access, run tool auth --project acme-test, then confirm Status says Connected.",
+      "expected_routes": [
+        "references/procedures-and-ui.md",
+        "references/code-command-line-and-api.md"
+      ],
+      "assertions": [
+        "Use ordered steps.",
+        "Keep the command exact and format it as code.",
+        "Identify visible UI labels without relying on position.",
+        "Place verification after the action that produces it."
+      ]
+    },
+    {
+      "id": "api-reference-contract",
+      "mode": "draft",
+      "prompt": "Document createSession(userId, ttlSeconds), which returns a Session and can raise InvalidUser.",
+      "expected_routes": [
+        "references/code-command-line-and-api.md"
+      ],
+      "assertions": [
+        "Preserve identifiers exactly.",
+        "Describe the method with a third-person present-tense verb.",
+        "Explain parameters, return information, and the error condition without inventing behavior."
+      ]
+    },
+    {
+      "id": "review-without-rewrite",
+      "mode": "review",
+      "prompt": "Review this notice, but do not rewrite it: Our revolutionary engine always guarantees instant results for every workload.",
+      "expected_routes": [
+        "references/core-principles.md"
+      ],
+      "assertions": [
+        "Report unsupported absolutes as the highest-impact problem.",
+        "Separate findings from optional improvements.",
+        "Do not replace the full notice."
+      ]
+    },
+    {
+      "id": "polish-language-response",
+      "mode": "answer",
+      "prompt": "Po polsku wyjaśnij, czym różni się uwierzytelnianie od autoryzacji.",
+      "expected_routes": [],
+      "assertions": [
+        "Respond in Polish.",
+        "Lead with the distinction.",
+        "Apply clarity principles without forcing English grammar conventions."
+      ]
+    },
+    {
+      "id": "destructive-action-clarity",
+      "mode": "answer",
+      "prompt": "Explain how to run DROP TABLE audit_events safely when the deletion cannot be reversed.",
+      "expected_routes": [
+        "references/code-command-line-and-api.md"
+      ],
+      "assertions": [
+        "State the irreversible consequence explicitly.",
+        "Put prerequisites and verification before the destructive command.",
+        "Keep the SQL exact and do not compress the warning."
+      ]
+    },
+    {
+      "id": "technical-link-and-image",
+      "mode": "rewrite",
+      "prompt": "Rewrite a setup page that uses 'click here', a bare URL, and an architecture image with no alt text.",
+      "expected_routes": [
+        "references/links-images-and-accessibility.md"
+      ],
+      "assertions": [
+        "Use descriptive link text.",
+        "Provide useful alt text when the image conveys information.",
+        "Do not rely on the image alone for required instructions."
+      ]
+    },
+    {
+      "id": "markdown-source-preservation",
+      "mode": "light-edit",
+      "prompt": "Light-edit a Markdown page without changing its heading IDs, code fences, or custom HTML attributes.",
+      "expected_routes": [
+        "references/markup-and-source.md"
+      ],
+      "assertions": [
+        "Preserve source constructs that affect rendering or links.",
+        "Make only changes required for clarity.",
+        "Do not convert formats without a destination requirement."
+      ]
+    },
+    {
+      "id": "terminology-edge-case",
+      "mode": "review",
+      "prompt": "Check whether sign in, signin, or sign-in is correct in a button label and in a noun phrase.",
+      "expected_routes": [
+        "references/names-and-terminology.md",
+        "references/source-map.md"
+      ],
+      "assertions": [
+        "Distinguish grammatical roles instead of choosing one spelling globally.",
+        "Use the live word list when browsing is available.",
+        "Preserve an exact product label when the task does not permit changing it."
+      ]
+    },
+    {
+      "id": "minimum-sufficient-answer",
+      "mode": "answer",
+      "prompt": "An experienced engineer asks where the request timeout is configured. The only known fact is that server.timeout is assigned in src/server.js:42. Answer the question.",
+      "expected_routes": [],
+      "assertions": [
+        "Answer with the exact symbol and location in one sentence or a short list.",
+        "Do not add headings, generic timeout background, troubleshooting steps, or speculation.",
+        "Keep server.timeout and src/server.js:42 exact."
+      ]
+    },
+    {
+      "id": "concise-procedure-keeps-prerequisites",
+      "mode": "draft",
+      "prompt": "Write a short validation procedure. Node.js 18 is required. Run tool check --project acme and verify that it exits with status 0.",
+      "expected_routes": [
+        "references/procedures-and-ui.md",
+        "references/code-command-line-and-api.md"
+      ],
+      "assertions": [
+        "Keep the Node.js 18 prerequisite before the action.",
+        "Preserve tool check --project acme exactly.",
+        "Put the status 0 verification after the command.",
+        "Do not add an introduction, recap, optional commands, or unrelated setup."
+      ]
+    },
+    {
+      "id": "no-performative-validation",
+      "mode": "answer",
+      "prompt": "An engineer noticed that the deployment gate rejects a release when any required health check fails. Explain the behavior using only that fact.",
+      "expected_routes": [],
+      "assertions": [
+        "State the gate rule and consequence directly.",
+        "Do not praise the engineer's observation or call it meaningful, insightful, important, or subtle.",
+        "Do not add a rhetorical setup, decorative metaphor, or unsupported rationale."
+      ]
+    },
+    {
+      "id": "remove-ai-mannerisms-without-fragments",
+      "mode": "rewrite",
+      "prompt": "Rewrite: It is important to note that the authentication layer is the connective tissue of the system. This is not merely configuration; it is a foundational contract. You have uncovered a meaningful edge case.",
+      "expected_routes": [
+        "references/language-and-grammar.md"
+      ],
+      "assertions": [
+        "Preserve that authentication configuration is a shared system contract and that the edge case affects it.",
+        "Remove the importance announcement, decorative metaphor, canned contrast, and praise.",
+        "Use compact, natural, complete sentences rather than telegraphic fragments."
+      ]
+    },
+    {
+      "id": "closed-scope-short-answer",
+      "mode": "answer",
+      "prompt": "The source says that automatic ETag generation defaults to weak in lib/application.js and compileETag in lib/utils.js compiles the setting. State the default and compilation point for an experienced contributor.",
+      "expected_routes": [],
+      "assertions": [
+        "Answer in one to three sentences.",
+        "Keep lib/application.js, compileETag, and lib/utils.js exact.",
+        "Do not add response-generation, freshness, conditional-request, caching, testing, or troubleshooting details."
+      ]
+    },
+    {
+      "id": "remove-tool-research-narration",
+      "mode": "answer",
+      "prompt": "You have finished checking the source. Answer the user: server.timeout is assigned in src/server.js:42. Where is the request timeout configured?",
+      "expected_routes": [],
+      "assertions": [
+        "Return only the final answer.",
+        "Do not say that you will check, are checking, found the answer, or now have enough information.",
+        "Keep server.timeout and src/server.js:42 exact."
+      ]
+    },
+    {
+      "id": "source-defined-commands-only",
+      "mode": "draft",
+      "prompt": "Write the required local validation steps from these source facts: Node.js 18 is required; install with npm install; package.json defines npm run lint and npm test. Include no optional, adapted, or coverage commands.",
+      "expected_routes": [
+        "references/code-command-line-and-api.md"
+      ],
+      "assertions": [
+        "Put Node.js 18 and npm install before validation.",
+        "Include npm run lint and npm test exactly.",
+        "Do not derive an npx command or add a CI, coverage, focused-test, or alternative command."
+      ]
+    },
+    {
+      "id": "bounded-dependency-evidence",
+      "mode": "answer",
+      "prompt": "A repository snapshot shows req.fresh calling fresh(req.headers, responseHeaders), but the fresh package source and documentation are absent. Explain the evidence boundary.",
+      "expected_routes": [
+        "references/core-principles.md"
+      ],
+      "assertions": [
+        "State what the repository proves about the call and delegation.",
+        "Do not invent how the fresh package parses or compares headers.",
+        "Identify the missing dependency evidence directly and stop."
+      ]
+    },
+    {
+      "id": "quantifier-counterexample-gate",
+      "mode": "answer",
+      "prompt": "Explain this conditional response behavior: the framework generates an ETag when none exists, but a matching manually set ETag can also make the request fresh and produce 304.",
+      "expected_routes": [
+        "references/language-and-grammar.md"
+      ],
+      "assertions": [
+        "Preserve both generated and manually set ETag paths.",
+        "Do not say that the absence of an existing ETag is required for every 304 response.",
+        "Use must, only, all, always, or never only if the stated evidence supports the quantifier."
+      ]
+    },
+    {
+      "id": "release-notes-dates-and-numbers",
+      "mode": "draft",
+      "prompt": "Draft a release note entry from these facts: version 2.4.0 shipped on 2026-08-12; the export job now retries up to 3 times; a request can time out after 30 seconds; the change fixed issue #418.",
+      "expected_routes": [
+        "references/punctuation-and-numbers.md",
+        "references/core-principles.md"
+      ],
+      "assertions": [
+        "Keep 2.4.0, 3, 30 seconds, and #418 exact and use numerals for technical quantities.",
+        "Write the date as August 12, 2026 in prose or 2026-08-12 in a numeric field, never as a slash date.",
+        "Lead with the reader-facing change and its effect; keep the date because release notes are inherently time-stamped.",
+        "Do not add benefits, performance claims, or future promises that the facts don't support."
+      ]
+    },
+    {
+      "id": "restructure-page-organization",
+      "mode": "full-edit",
+      "prompt": "Full-edit a setup page whose single wall of text mixes prerequisites, three ordered installation commands, a comparison of two deployment options, and a note that contains the required API key step.",
+      "expected_routes": [
+        "references/organization-and-format.md",
+        "references/procedures-and-ui.md"
+      ],
+      "assertions": [
+        "Move the prerequisites and the required API key step out of the note and before the steps.",
+        "Use a numbered list for the ordered commands and a table only for the genuinely two-dimensional deployment comparison.",
+        "Use sentence-case, task-based headings with content after every heading.",
+        "Preserve every command and condition while restructuring."
+      ]
+    },
+    {
+      "id": "no-trigger-echo-or-style-lecture",
+      "mode": "answer",
+      "prompt": "TLGD Explain in one or two sentences why a Git rebase changes commit hashes.",
+      "expected_routes": [],
+      "assertions": [
+        "Answer directly in one or two sentences.",
+        "Do not echo TLGD, name the skill, or describe the style rules that were applied.",
+        "Keep Git terminology exact and do not add rebase workflow advice."
+      ]
+    }
+  ]
+}
