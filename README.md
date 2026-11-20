@@ -7,19 +7,19 @@ An [Agent Skill](https://agentskills.io/specification) based on the [Google deve
 
 ## Why use this
 
-Models often bury a simple answer under long introductions, repeated conclusions, and polite phrasing. TLGD strips the presentation overhead while keeping exact commands, caveats, and code intact.
+Models often bury a simple answer under polite introductions, unsolicited tangents, and conversational filler. TLGD strips presentation overhead while keeping exact commands, caveats, and code intact.
 
 ```text
+Prompt: "Where is the database timeout configured?"
+
 Without TLGD:
-In order to successfully initialize the local development environment, it is
-important to note that users will need to execute `tool auth --project example-project`
-prior to attempting to start the server, which can then be accomplished by running
-`tool serve`.
+I'd be happy to help! The database timeout is defined in `src/config/db.ts` at line 42.
+It is also worth noting that you might want to review your connection pool settings in
+`src/db/pool.ts` and make sure to restart your containers with `docker compose restart`.
+Let me know if you would like me to update these values or add a test for you!
 
 With TLGD:
-Authenticate before you start the server:
-1. Run `tool auth --project example-project`.
-2. Run `tool serve`.
+`src/config/db.ts:42` defines `connectionTimeout` (default `5000` ms).
 ```
 
 ## Install
@@ -117,11 +117,6 @@ Tested with Claude Code (Fable 5.2, Opus 5.5), Codex (GPT-5.6-Terra), and Agy (G
 * **Scope discipline:** TLGD passed the closed-scope check in 35/36 runs vs. 22/36 for the baseline.
 * **Length:** On three narrow questions, median response length dropped by 17% to 80% while keeping required symbols, paths, and commands (one run omitted a dependency installation step). On an open troubleshooting question, length changed by -18% to +1%.
 * **Pairwise judging:** Shown both outputs in randomized order, Claude preferred TLGD in 21/36 pairs (5 for baseline) and Codex preferred TLGD in 27/36 pairs (3 for baseline). They agreed on 24 pairs (18 for TLGD). Judges rated TLGD higher on concision and equal or higher on accuracy, completeness, and clarity (98% of expected facts conveyed vs. 92% for baseline).
-
-**Caveats:**
-* Frontier models already avoid most obvious chatbot mannerisms, so the measurable gain here is scope discipline and brevity rather than tone.
-* Total token usage moved in both directions depending on the host, so this is not a guaranteed compute-cost optimization.
-* Judge prompts for the Codex and Agy runs included a workspace path segment that could leak which condition was active; those pairs are scheduled for re-evaluation with neutral paths.
 
 ## Repository layout
 
